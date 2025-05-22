@@ -1,8 +1,9 @@
-package com.ecommerce.orderinventory.service;
+package com.ecommerce.orderinventory.service.impl;
 
 import com.ecommerce.orderinventory.dto.ProductDetails;
 import com.ecommerce.orderinventory.entity.Inventory;
 import com.ecommerce.orderinventory.repository.InventoryRepository;
+import com.ecommerce.orderinventory.service.IInventoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +14,11 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class InventoryService {
+public class InventoryService implements IInventoryService {
 
     private final InventoryRepository inventoryRepository;
 
+    @Override
     public void restoreInventory(Long productId, int quantity) {
         Optional<Inventory> inventory = inventoryRepository.findByProductId(productId);
         inventory.equals(inventory.get().getQuantity() - quantity);
@@ -24,6 +26,7 @@ public class InventoryService {
         inventoryRepository.save(inventory.get());
     }
 
+    @Override
     public List<ProductDetails> getAllProductDetails() {
         return inventoryRepository.findAll().stream()
                 .map(inv -> new ProductDetails(

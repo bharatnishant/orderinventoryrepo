@@ -1,7 +1,7 @@
 package com.ecommerce.orderinventory.controller;
 
 import com.ecommerce.orderinventory.dto.ProductDetails;
-import com.ecommerce.orderinventory.service.InventoryService;
+import com.ecommerce.orderinventory.service.impl.InventoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

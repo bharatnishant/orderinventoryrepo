@@ -1,8 +1,9 @@
-package com.ecommerce.orderinventory.service;
+package com.ecommerce.orderinventory.service.impl;
 
 
 import com.ecommerce.orderinventory.entity.Orders;
 import com.ecommerce.orderinventory.repository.OrdersRepository;
+import com.ecommerce.orderinventory.service.IOrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -11,11 +12,12 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class OrderService {
+public class OrderService implements IOrderService {
 
     private final OrdersRepository ordersRepository;
     private final InventoryService inventoryService;
 
+    @Override
     public void cancelOrder(Long orderId) {
         log.info("Cancelling order with ID = {}", orderId);
         Optional<Orders> order = ordersRepository.findById(orderId);

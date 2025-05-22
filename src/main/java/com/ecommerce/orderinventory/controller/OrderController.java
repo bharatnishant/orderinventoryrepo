@@ -2,7 +2,7 @@ package com.ecommerce.orderinventory.controller;
 
 import com.ecommerce.orderinventory.dto.ApiResponse;
 import com.ecommerce.orderinventory.dto.OrderCancellationRequest;
-import com.ecommerce.orderinventory.service.OrderService;
+import com.ecommerce.orderinventory.service.impl.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
