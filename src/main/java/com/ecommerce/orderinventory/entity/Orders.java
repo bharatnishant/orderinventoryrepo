@@ -1,13 +1,11 @@
 package com.ecommerce.orderinventory.entity;
 
 import javax.persistence.*;
-import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "orders")
-@Data
 public class Orders {
 
     @Id
@@ -22,4 +20,81 @@ public class Orders {
     private String paymentMethod;
     private LocalDateTime expectedDelivery;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public LocalDateTime getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDateTime orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public LocalDateTime getExpectedDelivery() {
+        return expectedDelivery;
+    }
+
+    public void setExpectedDelivery(LocalDateTime expectedDelivery) {
+        this.expectedDelivery = expectedDelivery;
+    }
+
+    @Override
+    public String toString() {
+        return "Orders{" +
+                "id=" + id +
+                ", customerId=" + customerId +
+                ", productId=" + productId +
+                ", quantity=" + quantity +
+                ", orderDate=" + orderDate +
+                ", status='" + status + '\'' +
+                ", paymentMethod='" + paymentMethod + '\'' +
+                ", expectedDelivery=" + expectedDelivery +
+                '}';
+    }
 }

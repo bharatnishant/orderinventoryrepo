@@ -4,7 +4,6 @@ import com.ecommerce.orderinventory.dto.ProductDetails;
 import com.ecommerce.orderinventory.entity.Inventory;
 import com.ecommerce.orderinventory.repository.InventoryRepository;
 import com.ecommerce.orderinventory.service.IInventoryService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -13,10 +12,13 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class InventoryService implements IInventoryService {
 
     private final InventoryRepository inventoryRepository;
+
+    public InventoryService(InventoryRepository inventoryRepository) {
+        this.inventoryRepository = inventoryRepository;
+    }
 
     @Override
     public void restoreInventory(Long productId, int quantity) {
